@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Lucid Dream</string>
+    <string-array name="clarete">
+        <item>fractional</item>
+        <item>cloudy</item>
+        <item>normal</item>
+        <item>clear</item>
+        <item>super clear</item>
+    </string-array>
+    <string name="bottom_bar_journal">Diary</string>
+    <string name="bottom_bar_statistique">Statistics</string>
+    <string name="bottom_bar_recherche">Search</string>
+    <string name="bottom_bar_rappel">Recall</string>
+    <string name="chart_title">Percentage of lucid dream</string>
+    <string name="chart_normalDream">Normal dream</string>
+    <string name="chart_lucidDream">Lucid dream</string>
+    <string name="recherche_bar_hint">Search your dream here</string>
+    <string name="rappel_hour">Hour</string>
+    <string name="rappel_minute">Minute</string>
+    <string name="rappel_setTime">SET TIME</string>
+    <string name="rappel_setAlarm">SET ALARM</string>
+    <string name="rappel_alert_message_setTime">Please set time</string>
+    <string name="rappel_alert_message_notSupported">There is no app that support this action</string>
+    <string name="ajouter_date_titre">Date</string>
+    <string name="ajouter_reve_titre">Title</string>
+    <string name="ajouter_story_titre">Story</string>
+    <string name="ajouter_clarete_titre">Clarity</string>
+    <string name="ajouter_lucid_titre">Lucid dream</string>
+    <string name="ajouter_add_button">Apply</string>
+    <string name="ajouter_alert_message_title">The fields "Title" is mandatory.</string>
+    <string name="ajouter_alert_message_story">The fields "Story" is mandatory.</string>
+    <string name="ajouter_title_hint">Your dream title here</string>
+    <string name="ajouter_story_hint">Describe your dream here</string>
+    <string name="rappel_question_reve">Are you dreaming ?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+</resources>

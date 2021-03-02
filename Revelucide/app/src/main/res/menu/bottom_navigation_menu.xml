@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/journal"
+        android:icon="@drawable/ic_book"
+        android:title="@string/bottom_bar_journal"
+        />
+
+    <item
+        android:id="@+id/statistique"
+        android:icon="@drawable/ic_chart"
+        android:title="@string/bottom_bar_statistique"
+        />
+    <item
+        android:id="@+id/ajout"
+        android:title=""
+        />
+    <item
+        android:id="@+id/recherche"
+        android:icon="@drawable/ic_search"
+        android:title="@string/bottom_bar_recherche"
+        />
+    <item
+        android:id="@+id/rappel"
+        android:icon="@drawable/ic_add_alert"
+        android:title="@string/bottom_bar_rappel"
+        />
+
+</menu>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <DatePicker
+        android:id="@+id/date"
+        android:layout_width="338dp"
+        android:layout_height="182dp"
+        android:calendarViewShown="false"
+        android:datePickerMode="spinner"
+        android:ems="10"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.089" />
+
+    <TextView
+        android:id="@+id/textDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="@string/ajouter_date_titre"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/date"
+        app:layout_constraintStart_toStartOf="@+id/date" />
+
+    <TextView
+        android:id="@+id/textTitle"
+        android:layout_width="45dp"
+        android:layout_height="25dp"
+        android:layout_marginBottom="12dp"
+        android:text="@string/ajouter_reve_titre"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/title"
+        app:layout_constraintStart_toStartOf="@+id/title" />
+
+    <EditText
+        android:id="@+id/title"
+        android:inputType="text"
+        android:layout_width="292dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="72dp"
+        android:layout_marginBottom="216dp"
+        android:ems="10"
+        android:hint="@string/ajouter_title_hint"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/date"
+        app:layout_constraintTop_toBottomOf="@+id/date"
+        app:layout_constraintVertical_bias="0.212" />
+
+    <EditText
+        android:id="@+id/description"
+        android:layout_width="288dp"
+        android:layout_height="99dp"
+        android:layout_marginTop="56dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="@string/ajouter_story_hint"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/title"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
+
+    <TextView
+        android:id="@+id/textDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="@string/ajouter_story_titre"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/description"
+        app:layout_constraintStart_toStartOf="@+id/description" />
+
+    <Button
+        android:id="@+id/buttonAjout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="@string/ajouter_add_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switchLucidite"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Switch
+        android:id="@+id/switchLucidite"
+        android:layout_width="136dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="28dp"
+        android:text="@string/ajouter_lucid_titre"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="@+id/spinnerClarete"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerClarete" />
+
+    <Spinner
+        android:id="@+id/spinnerClarete"
+        android:layout_width="283dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="64dp"
+        app:layout_constraintStart_toStartOf="@+id/description"
+        app:layout_constraintTop_toBottomOf="@+id/description" />
+
+    <TextView
+        android:id="@+id/textSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="@string/ajouter_clarete_titre"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/spinnerClarete"
+        app:layout_constraintStart_toStartOf="@+id/spinnerClarete" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

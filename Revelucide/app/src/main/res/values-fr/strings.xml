@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Reve lucide</string>
+    <string-array name="clarete">
+        <item>Fractionné</item>
+        <item>nuageux</item>
+        <item>normal</item>
+        <item>clair</item>
+        <item>super clair</item>
+    </string-array>
+    <string name="bottom_bar_journal">Journal</string>
+    <string name="bottom_bar_statistique">Statistique</string>
+    <string name="bottom_bar_recherche">Recherche</string>
+    <string name="bottom_bar_rappel">Rappel</string>
+    <string name="chart_title">Pourcentage de reve lucide</string>
+    <string name="chart_normalDream">Reve normale</string>
+    <string name="chart_lucidDream">Reve lucide</string>
+    <string name="recherche_bar_hint">Cherche ton reve ici</string>
+    <string name="rappel_hour">Heure</string>
+    <string name="rappel_minute">Minute</string>
+    <string name="rappel_setTime">REGLER</string>
+    <string name="rappel_setAlarm">ACTIVER</string>
+    <string name="rappel_alert_message_setTime">S\'il vous plait reglé le temps</string>
+    <string name="rappel_alert_message_notSupported">Il n\'y a pas d\'application qui supporte cette action</string>
+    <string name="ajouter_date_titre">Date</string>
+    <string name="ajouter_reve_titre">Titre</string>
+    <string name="ajouter_story_titre">Histoire</string>
+    <string name="ajouter_clarete_titre">Clareté</string>
+    <string name="ajouter_lucid_titre">Reve lucide</string>
+    <string name="ajouter_add_button">Accepter</string>
+    <string name="ajouter_alert_message_title">Le champs "Titre" est obligatoire.</string>
+    <string name="ajouter_alert_message_story">Le champs "Histoire" est obligatoire.</string>
+    <string name="ajouter_title_hint">Le titre de votre reve ici</string>
+    <string name="ajouter_story_hint">La description de votre reve ici</string>
+    <string name="rappel_question_reve">Est-ce que tu rêve ?</string>
+    <string name="yes">Oui</string>
+    <string name="no">Non</string>
+</resources>
