@@ -99,6 +99,7 @@ public class MainActivity extends AppCompatActivity { // JournalActivity
     }
 
     private void createReveExample() {
+        Reve.setReveLog(new ArrayList<>());
         Date currentTime = Calendar.getInstance().getTime();
         Reve.addReveLog(new Reve("Les oreillers magiques","Malgré les lois qui fixent qu'on doit aimer le roi, le tyran Croque-peuple ne se sent pas aimé de ses sujets. Alors il invente des oreillers à cauchemars qui rendent leurs journées meilleures que leurs nuits. Mais c'est sans compter sur Antoine, le maître d'école, et ses élèves, qui tentent de déjouer le complot.",
                 currentTime,"clair", true));
