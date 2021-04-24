@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.example.revelucide.models.Reve;
 import com.example.revelucide.models.ReveAdapter;
+import com.example.revelucide.models.bottomNavBar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
@@ -41,33 +42,7 @@ public class MainActivity extends AppCompatActivity { // JournalActivity
         listView.setAdapter(reveAdapter);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomBar);
-        Menu menu = bottomNavigationView.getMenu();
-        MenuItem menuItem = menu.getItem(0);
-        menuItem.setChecked(true); // j'active le bouton de l'activité
-
-        bottomNavigationView.setBackground(null);
-        menu.getItem(2).setEnabled(false);
-
-        bottomNavigationView.setOnNavigationItemSelectedListener(item -> { // listener sur les boutons du bottom navigation bar
-            Intent intent0;
-            switch (item.getItemId()) {
-                case R.id.journal:
-                    break;
-                case R.id.statistique:
-                    intent0 = new Intent(MainActivity.this, StatistiqueActivity.class);
-                    startActivity(intent0);
-                    break;
-                case R.id.recherche:
-                    intent0 = new Intent(MainActivity.this, RechercheActivity.class);
-                    startActivity(intent0);
-                    break;
-                case R.id.rappel:
-                    intent0 = new Intent(MainActivity.this, RappelActivity.class);
-                    startActivity(intent0);
-                    break;
-            }
-            return true;
-        });
+        bottomNavBar.createBottomNavBar(0, bottomNavigationView, MainActivity.this);
 
         FloatingActionButton buton = findViewById(R.id.boutonAjout);
 

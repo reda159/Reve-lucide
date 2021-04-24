@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.revelucide.models.Reve;
 import com.example.revelucide.models.ReveAdapter;
+import com.example.revelucide.models.bottomNavBar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -51,33 +52,7 @@ public class RechercheActivity extends AppCompatActivity {
         });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomBar);
-        Menu menu = bottomNavigationView.getMenu();
-        MenuItem menuItem = menu.getItem(3);
-        menuItem.setChecked(true);
-
-        bottomNavigationView.setBackground(null);
-        menu.getItem(2).setEnabled(false);
-
-        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
-            Intent intent0;
-            switch (item.getItemId()) {
-                case R.id.journal:
-                    intent0 = new Intent(RechercheActivity.this, MainActivity.class);
-                    startActivity(intent0);
-                    break;
-                case R.id.statistique:
-                    intent0 = new Intent(RechercheActivity.this, StatistiqueActivity.class);
-                    startActivity(intent0);
-                    break;
-                case R.id.recherche:
-                    break;
-                case R.id.rappel:
-                    intent0 = new Intent(RechercheActivity.this, RappelActivity.class);
-                    startActivity(intent0);
-                    break;
-            }
-            return true;
-        });
+        bottomNavBar.createBottomNavBar(3, bottomNavigationView, RechercheActivity.this);
 
         FloatingActionButton buton = findViewById(R.id.boutonAjout);
 

@@ -16,6 +16,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.revelucide.models.bottomNavBar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -29,33 +30,7 @@ public class RappelActivity extends AppCompatActivity {
         setContentView(R.layout.activity_rappel);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomBar);
-        Menu menu = bottomNavigationView.getMenu();
-        MenuItem menuItem = menu.getItem(4);
-        menuItem.setChecked(true);
-
-        bottomNavigationView.setBackground(null);
-        menu.getItem(2).setEnabled(false);
-
-        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
-            Intent intent0;
-            switch (item.getItemId()) {
-                case R.id.journal:
-                    intent0 = new Intent(RappelActivity.this, MainActivity.class);
-                    startActivity(intent0);
-                    break;
-                case R.id.statistique:
-                    intent0 = new Intent(RappelActivity.this, StatistiqueActivity.class);
-                    startActivity(intent0);
-                    break;
-                case R.id.recherche:
-                    intent0 = new Intent(RappelActivity.this, RechercheActivity.class);
-                    startActivity(intent0);
-                    break;
-                case R.id.rappel:
-                    break;
-            }
-            return true;
-        });
+        bottomNavBar.createBottomNavBar(4, bottomNavigationView, RappelActivity.this);
 
         FloatingActionButton buton = findViewById(R.id.boutonAjout);
 

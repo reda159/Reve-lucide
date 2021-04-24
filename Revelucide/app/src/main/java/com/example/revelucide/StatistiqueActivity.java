@@ -2,9 +2,6 @@ package com.example.revelucide;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,6 +11,7 @@ import com.anychart.chart.common.dataentry.DataEntry;
 import com.anychart.chart.common.dataentry.ValueDataEntry;
 import com.anychart.charts.Pie;
 import com.example.revelucide.models.Reve;
+import com.example.revelucide.models.bottomNavBar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -33,33 +31,7 @@ public class StatistiqueActivity extends AppCompatActivity {
         this.setupPieChart();
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomBar);
-        Menu menu = bottomNavigationView.getMenu();
-        MenuItem menuItem = menu.getItem(1);
-        menuItem.setChecked(true);
-
-        bottomNavigationView.setBackground(null);
-        menu.getItem(2).setEnabled(false);
-
-        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
-            Intent intent0;
-            switch (item.getItemId()) {
-                case R.id.journal:
-                    intent0 = new Intent(StatistiqueActivity.this, MainActivity.class);
-                    startActivity(intent0);
-                    break;
-                case R.id.statistique:
-                    break;
-                case R.id.recherche:
-                    intent0 = new Intent(StatistiqueActivity.this, RechercheActivity.class);
-                    startActivity(intent0);
-                    break;
-                case R.id.rappel:
-                    intent0 = new Intent(StatistiqueActivity.this, RappelActivity.class);
-                    startActivity(intent0);
-                    break;
-            }
-            return true;
-        });
+        bottomNavBar.createBottomNavBar(1, bottomNavigationView, StatistiqueActivity.this);
 
         FloatingActionButton buton = findViewById(R.id.boutonAjout);
 
