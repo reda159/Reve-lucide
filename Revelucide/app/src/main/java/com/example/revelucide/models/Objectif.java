@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 public class Objectif {
 
+    private static ArrayList<Objectif> listObjectif = new ArrayList<>();
+
     private String title;
     private ArrayList<Experience> listExperience;
     private ArrayList<String> listAstuce;
@@ -12,6 +14,14 @@ public class Objectif {
         this.title = title;
         this.listExperience = new ArrayList<>();
         this.listAstuce = new ArrayList<>();
+    }
+
+    public static ArrayList<Objectif> getListObjectif() {
+        return listObjectif;
+    }
+
+    public void addObjectif(String title) {
+        Objectif.listObjectif.add(new Objectif(title));
     }
 
     public int getNbExperience() {
@@ -41,4 +51,8 @@ public class Objectif {
     public void setAstuce(String astuce) {
         this.listAstuce.add(astuce);
     }
+
+    public String toString() {
+        return this.title;
+    } // pour la recherche on a besoin d'un tooString qui renvoie le titre
 }
