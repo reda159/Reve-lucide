@@ -24,6 +24,10 @@ public class Objectif {
         Objectif.listObjectif.add(new Objectif(title));
     }
 
+    public static void setListObjectif(ArrayList<Objectif> listObjectif) {
+        Objectif.listObjectif = listObjectif;
+    }
+
     public int getNbExperience() {
         return listExperience.size();
     }
