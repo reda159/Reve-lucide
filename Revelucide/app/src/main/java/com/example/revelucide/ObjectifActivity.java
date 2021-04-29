@@ -4,8 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -14,8 +12,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.revelucide.models.Objectif;
 import com.example.revelucide.models.ObjectifAdapter;
-import com.example.revelucide.models.Reve;
-import com.example.revelucide.models.ReveAdapter;
 import com.example.revelucide.models.bottomNavBar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -65,8 +61,8 @@ public class ObjectifActivity extends AppCompatActivity {
 
         // On ouvre un intent dans lequel on trouvera toute les informations de l'objetif cliquer
         listView.setOnItemClickListener((adapterView, view, position, id) -> {
-            Intent intent0 = new Intent(ObjectifActivity.this, AjoutActivity.class);
-            intent0.getIntExtra("position", position);
+            Intent intent0 = new Intent(ObjectifActivity.this, ExperienceActivity.class);
+            intent0.putExtra("position", position);
             startActivity(intent0);
         });
 
