@@ -7,7 +7,7 @@ public class Objectif {
     private static ArrayList<Objectif> listObjectif = new ArrayList<>();
 
     private String title;
-    private ArrayList<Experience> listExperience;
+    private ArrayList<String> listExperience;
     private ArrayList<String> listAstuce;
 
     public Objectif(String title) {
@@ -36,7 +36,7 @@ public class Objectif {
         return title;
     }
 
-    public ArrayList<Experience> getListExperience() {
+    public ArrayList<String> getListExperience() {
         return listExperience;
     }
 
@@ -48,7 +48,7 @@ public class Objectif {
         this.title = title;
     }
 
-    public void setExperience(Experience experience) {
+    public void setExperience(String experience) {
         this.listExperience.add(experience);
     }
 

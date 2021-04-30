@@ -35,4 +35,12 @@
     <string name="rappel_question_reve">Est-ce que tu rêve ?</string>
     <string name="yes">Oui</string>
     <string name="no">Non</string>
+    <string name="labelObjectif">Objectif :</string>
+    <string name="messageObjectif">L\'objectif de votre reve ici</string>
+    <string name="labelAstuce">Astuce :</string>
+    <string name="messageAstuce">Les astuces de votre objectif ici</string>
+    <string name="labelExperience">Experiences :</string>
+    <string name="messageExperience">Les expériences de votre reves ici</string>
+    <string name="modify">Modifier</string>
+    <string name="add">Ajouter</string>
 </resources>

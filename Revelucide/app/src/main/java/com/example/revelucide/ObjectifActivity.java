@@ -65,8 +65,12 @@ public class ObjectifActivity extends AppCompatActivity {
             intent0.putExtra("position", position);
             startActivity(intent0);
         });
+    }
 
-
+    @Override
+    protected void onStart() {
+        super.onStart();
+        objectifAdapter.notifyDataSetChanged();
     }
 
     private void loadData() {
@@ -88,6 +92,4 @@ public class ObjectifActivity extends AppCompatActivity {
         editor.putString("listObjectif", json);
         editor.apply();
     }
-
-
 }

@@ -2,22 +2,77 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/astuceTitleSave"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
 
     <TextView
-        android:id="@+id/titleLabel2"
-        android:layout_width="45dp"
-        android:layout_height="25dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="124dp"
-        android:text="@string/ajouter_reve_titre"
+        android:id="@+id/LabelExperience"
+        android:layout_width="85dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/labelExperience"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/astuceTable"
+        app:layout_constraintStart_toStartOf="@+id/list_astuce"
+        app:layout_constraintTop_toBottomOf="@+id/list_astuce" />
+
+    <Button
+        android:id="@+id/modifyTitleObj"
+        android:layout_width="101dp"
+        android:layout_height="38dp"
+        android:layout_centerHorizontal="true"
+        android:text="@string/modify"
+        app:layout_constraintBottom_toTopOf="@+id/titreAstuce"
+        app:layout_constraintEnd_toEndOf="@+id/titreObjectif"
+        app:layout_constraintTop_toBottomOf="@+id/titreObjectif"
+        app:layout_constraintVertical_bias="0.384" />
+
+    <EditText
+        android:id="@+id/titreAstuce"
+        android:layout_width="379dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="128dp"
+        android:ems="10"
+        android:hint="@string/messageAstuce"
+        android:inputType="text"
+        android:textColor="@color/white"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/titleLabel"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.105" />
+        app:layout_constraintTop_toBottomOf="@+id/titleLabel" />
+
+    <ListView
+        android:id="@+id/list_astuce"
+        android:layout_width="383dp"
+        android:layout_height="118dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/titreAstuce"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/titreAstuce"
+        app:layout_constraintTop_toBottomOf="@+id/addAstuceButton"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/addAstuceButton"
+        android:layout_width="88dp"
+        android:layout_height="39dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="4dp"
+        android:text="@string/add"
+        app:layout_constraintEnd_toEndOf="@+id/titreAstuce"
+        app:layout_constraintTop_toBottomOf="@+id/titreAstuce" />
+
+    <TextView
+        android:id="@+id/titleLabel2"
+        android:layout_width="71dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="128dp"
+        android:text="@string/labelAstuce"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="@+id/titleLabel"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/titreObjectif"
@@ -25,39 +80,57 @@
         android:layout_height="47dp"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="@string/ajouter_title_hint"
+        android:hint="@string/messageObjectif"
         android:inputType="text"
         android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="@+id/astuceTable"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/titleLabel"
         app:layout_constraintTop_toBottomOf="@+id/titleLabel" />
 
     <TextView
         android:id="@+id/titleLabel"
-        android:layout_width="45dp"
-        android:layout_height="25dp"
+        android:layout_width="78dp"
+        android:layout_height="23dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="@string/ajouter_reve_titre"
+        android:text="@string/labelObjectif"
         android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ScrollView
-        android:id="@+id/astuceTable"
-        android:layout_width="372dp"
-        android:layout_height="185dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="168dp"
-        app:layout_constraintStart_toStartOf="@+id/titleLabel"
-        app:layout_constraintTop_toTopOf="parent" >
+    <ListView
+        android:id="@+id/listView_Experiences"
+        android:layout_width="373dp"
+        android:layout_height="195dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/messageExperiences"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/LabelExperience" />
 
+    <EditText
+        android:id="@+id/messageExperiences"
+        android:layout_width="378dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="4dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="@string/messageExperience"
+        app:layout_constraintEnd_toEndOf="@+id/list_astuce"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/LabelExperience"
+        app:layout_constraintTop_toBottomOf="@+id/LabelExperience" />
 
-        <ListView
-            android:id="@+id/list_astuce"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </ScrollView>
+    <Button
+        android:id="@+id/addExperienceButton"
+        android:layout_width="75dp"
+        android:layout_height="38dp"
+        android:text="@string/add"
+        app:layout_constraintBottom_toTopOf="@+id/listView_Experiences"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.94"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/messageExperiences"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
