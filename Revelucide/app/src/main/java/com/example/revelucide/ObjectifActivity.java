@@ -47,16 +47,22 @@ public class ObjectifActivity extends AppCompatActivity {
 
         FloatingActionButton button = findViewById(R.id.boutonAjout);
 
+        // bouton d'ajout dans la bottom bar
         button.setOnClickListener(v -> {
             Intent intent0 = new Intent(ObjectifActivity.this, AjoutActivity.class);
             startActivity(intent0);
         });
 
+        // Ajout d'un objectif a la liste
         addButton.setOnClickListener(v -> {
-            Objectif.getListObjectif().add(new Objectif(GetValue.getText().toString()));
-            GetValue.setText("");
-            objectifAdapter.notifyDataSetChanged();
-            this.saveData();
+            // que si le champs n'est pas vide
+            if (!GetValue.getText().toString().isEmpty()) {
+                Objectif.getListObjectif().add(new Objectif(GetValue.getText().toString()));
+                GetValue.setText("");
+                objectifAdapter.notifyDataSetChanged();
+                this.saveData();
+            }
+
         });
 
         // On ouvre un intent dans lequel on trouvera toute les informations de l'objetif cliquer
@@ -68,7 +74,7 @@ public class ObjectifActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onStart() {
+    protected void onStart() { // Refresh les données a la sortie de l'intent Experiences via le bouton back de android
         super.onStart();
         objectifAdapter.notifyDataSetChanged();
     }

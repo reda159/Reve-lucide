@@ -9,7 +9,6 @@ import com.example.revelucide.MainActivity;
 import com.example.revelucide.ObjectifActivity;
 import com.example.revelucide.R;
 import com.example.revelucide.RappelActivity;
-import com.example.revelucide.ObjectifActivity;
 import com.example.revelucide.StatistiqueActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 

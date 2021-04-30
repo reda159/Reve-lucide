@@ -1,7 +1,6 @@
 package com.example.revelucide;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
@@ -12,12 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.revelucide.models.AstuceAdapter;
 import com.example.revelucide.models.Objectif;
-import com.example.revelucide.models.ObjectifAdapter;
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.ArrayList;
 
 public class ExperienceActivity extends AppCompatActivity {
 
@@ -41,6 +35,7 @@ public class ExperienceActivity extends AppCompatActivity {
             EditText titre = findViewById(R.id.titreObjectif);
             titre.setText(Objectif.getListObjectif().get(position).getTitle());
 
+            // Ajout d'une astuce a la listView
             Button addAstuceButton = findViewById(R.id.addAstuceButton);
             addAstuceButton.setOnClickListener(v -> {
                 EditText astuceMessage = findViewById(R.id.titreAstuce);
@@ -52,6 +47,7 @@ public class ExperienceActivity extends AppCompatActivity {
                 }
             });
 
+            // Modication du titre de l'objectif
             Button modifyTitleButton = findViewById(R.id.modifyTitleObj);
             modifyTitleButton.setOnClickListener(v -> {
                 if (!titre.getText().toString().isEmpty()) {
@@ -61,10 +57,12 @@ public class ExperienceActivity extends AppCompatActivity {
                 }
             });
 
+            // création de la listView des expériences
             AstuceAdapter astuceAdapter2 = new AstuceAdapter(this, R.layout.listview_astuce_row, obj.getListExperience());
             ListView ListExperiences = findViewById(R.id.listView_Experiences);
             ListExperiences.setAdapter(astuceAdapter2);
 
+            // Ajout d'une expérience a la listView
             Button addExperienceButton = findViewById(R.id.addExperienceButton);
             addExperienceButton.setOnClickListener(v -> {
                 EditText experienceMessage = findViewById(R.id.messageExperiences);
