@@ -10,7 +10,7 @@
     </string-array>
     <string name="bottom_bar_journal">Journal</string>
     <string name="bottom_bar_statistique">Statistique</string>
-    <string name="bottom_bar_recherche">Recherche</string>
+    <string name="bottom_bar_recherche">Objectif</string>
     <string name="bottom_bar_rappel">Rappel</string>
     <string name="chart_title">Pourcentage de reve lucide</string>
     <string name="chart_normalDream">Reve normale</string>

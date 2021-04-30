@@ -44,17 +44,21 @@ public class ExperienceActivity extends AppCompatActivity {
             Button addAstuceButton = findViewById(R.id.addAstuceButton);
             addAstuceButton.setOnClickListener(v -> {
                 EditText astuceMessage = findViewById(R.id.titreAstuce);
-                Objectif.getListObjectif().get(position).getListAstuce().add(astuceMessage.getText().toString());
-                astuceMessage.setText("");
-                astuceAdapter.notifyDataSetChanged();
-                this.saveData();
+                if (!astuceMessage.getText().toString().isEmpty()) {
+                    Objectif.getListObjectif().get(position).getListAstuce().add(astuceMessage.getText().toString());
+                    astuceMessage.setText("");
+                    astuceAdapter.notifyDataSetChanged();
+                    this.saveData();
+                }
             });
 
             Button modifyTitleButton = findViewById(R.id.modifyTitleObj);
             modifyTitleButton.setOnClickListener(v -> {
-                Objectif.getListObjectif().get(position).setTitle(titre.getText().toString());
-                astuceAdapter.notifyDataSetChanged();
-                this.saveData();
+                if (!titre.getText().toString().isEmpty()) {
+                    Objectif.getListObjectif().get(position).setTitle(titre.getText().toString());
+                    astuceAdapter.notifyDataSetChanged();
+                    this.saveData();
+                }
             });
 
             AstuceAdapter astuceAdapter2 = new AstuceAdapter(this, R.layout.listview_astuce_row, obj.getListExperience());
@@ -64,10 +68,12 @@ public class ExperienceActivity extends AppCompatActivity {
             Button addExperienceButton = findViewById(R.id.addExperienceButton);
             addExperienceButton.setOnClickListener(v -> {
                 EditText experienceMessage = findViewById(R.id.messageExperiences);
-                Objectif.getListObjectif().get(position).getListExperience().add(experienceMessage.getText().toString());
-                experienceMessage.setText("");
-                astuceAdapter2.notifyDataSetChanged();
-                this.saveData();
+                if (!experienceMessage.getText().toString().isEmpty()) {
+                    Objectif.getListObjectif().get(position).getListExperience().add(experienceMessage.getText().toString());
+                    experienceMessage.setText("");
+                    astuceAdapter2.notifyDataSetChanged();
+                    this.saveData();
+                }
             });
         }
     }
