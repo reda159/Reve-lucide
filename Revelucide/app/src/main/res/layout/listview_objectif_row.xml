@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/rowTitle"
+        android:layout_width="321dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:text="TextView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/rowNbExperience"
+        android:layout_width="245dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rowTitle"
+        android:layout_alignStart="@+id/rowTitle"
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="9dp"
+        android:text="TextView"
+        android:textAlignment="viewEnd"
+        android:textColor="@color/white" />
+
+</RelativeLayout>

@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity { // JournalActivity
         }
     }
 
-    private void saveReve() {
+    private void saveData() {
         sp = getSharedPreferences("ReveLucidePref", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
         Gson gson = new Gson();
@@ -116,6 +116,6 @@ public class MainActivity extends AppCompatActivity { // JournalActivity
                 currentTime,"clair", false));
         Reve.addReveLog(new Reve("Rêvasser au soleil","L’été, riche en moments de détente, est présenté ici avec simplicité et douceur. Le prétexte : une fillette, en vacances chez son oncle, déambule autour de la maison et croise divers protagonistes qui, tous, les uns après les autres, empruntent quelques minutes à leur routine pour se détendre et observer ce que le ciel estival a à leur offrir. La poésie minimaliste du texte est telle qu’elle suggère un autre regard sur les actions des personnages ; monter la garde peut se faire de plusieurs façons, alors que préparer le repas et lire le journal ont, ici, une toute nouvelle définition.",
                 currentTime,"clair", true));
-        this.saveReve();
+        this.saveData();
     }
 }

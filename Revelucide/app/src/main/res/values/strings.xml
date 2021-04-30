@@ -9,7 +9,7 @@
     </string-array>
     <string name="bottom_bar_journal">Diary</string>
     <string name="bottom_bar_statistique">Statistics</string>
-    <string name="bottom_bar_recherche">Search</string>
+    <string name="bottom_bar_recherche">Goal</string>
     <string name="bottom_bar_rappel">Recall</string>
     <string name="chart_title">Percentage of lucid dream</string>
     <string name="chart_normalDream">Normal dream</string>
@@ -34,4 +34,12 @@
     <string name="rappel_question_reve">Are you dreaming ?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="labelObjectif">Goal :</string>
+    <string name="messageObjectif">Your goal title here</string>
+    <string name="labelAstuce">Hints :</string>
+    <string name="messageAstuce">Your hints title here</string>
+    <string name="labelExperience">Experience :</string>
+    <string name="messageExperience">Your experience title here</string>
+    <string name="modify">Modify</string>
+    <string name="add">ADD</string>
 </resources>

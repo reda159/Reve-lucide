@@ -10,7 +10,7 @@
     </string-array>
     <string name="bottom_bar_journal">Journal</string>
     <string name="bottom_bar_statistique">Statistique</string>
-    <string name="bottom_bar_recherche">Recherche</string>
+    <string name="bottom_bar_recherche">Objectif</string>
     <string name="bottom_bar_rappel">Rappel</string>
     <string name="chart_title">Pourcentage de reve lucide</string>
     <string name="chart_normalDream">Reve normale</string>
@@ -35,4 +35,12 @@
     <string name="rappel_question_reve">Est-ce que tu rêve ?</string>
     <string name="yes">Oui</string>
     <string name="no">Non</string>
+    <string name="labelObjectif">Objectif :</string>
+    <string name="messageObjectif">L\'objectif de votre reve ici</string>
+    <string name="labelAstuce">Astuce :</string>
+    <string name="messageAstuce">Les astuces de votre objectif ici</string>
+    <string name="labelExperience">Experiences :</string>
+    <string name="messageExperience">Les expériences de votre reves ici</string>
+    <string name="modify">Modifier</string>
+    <string name="add">Ajouter</string>
 </resources>

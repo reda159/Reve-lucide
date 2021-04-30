@@ -17,9 +17,8 @@
         />
     <item
         android:id="@+id/recherche"
-        android:icon="@drawable/ic_search"
-        android:title="@string/bottom_bar_recherche"
-        />
+        android:icon="?android:attr/actionModeFindDrawable"
+        android:title="@string/bottom_bar_recherche" />
     <item
         android:id="@+id/rappel"
         android:icon="@drawable/ic_add_alert"

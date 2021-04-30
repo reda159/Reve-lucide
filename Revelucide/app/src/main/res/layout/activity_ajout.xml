@@ -99,7 +99,8 @@
         android:text="@string/ajouter_lucid_titre"
         android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="@+id/spinnerClarete"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerClarete" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerClarete"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
 
     <Spinner
         android:id="@+id/spinnerClarete"

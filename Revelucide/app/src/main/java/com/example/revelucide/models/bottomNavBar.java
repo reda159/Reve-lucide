@@ -6,9 +6,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.revelucide.MainActivity;
+import com.example.revelucide.ObjectifActivity;
 import com.example.revelucide.R;
 import com.example.revelucide.RappelActivity;
-import com.example.revelucide.RechercheActivity;
+import com.example.revelucide.ObjectifActivity;
 import com.example.revelucide.StatistiqueActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -34,7 +35,7 @@ public class bottomNavBar {
                     context.startActivity(intent0);
                     break;
                 case R.id.recherche:
-                    intent0 = new Intent(context, RechercheActivity.class);
+                    intent0 = new Intent(context, ObjectifActivity.class);
                     context.startActivity(intent0);
                     break;
                 case R.id.rappel:
