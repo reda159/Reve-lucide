@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "944458201773",
+    "project_id": "reve-lucide",
+    "storage_bucket": "reve-lucide.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:944458201773:android:3d7fc63b7805d2256b2424",
+        "android_client_info": {
+          "package_name": "com.example.revelucide"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "944458201773-jj2co7frtpl3763ekjcunat7nn1sfm2u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjFszH8T5xVIX90gC4mn7zxCY5f5HCYtg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "944458201773-jj2co7frtpl3763ekjcunat7nn1sfm2u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
