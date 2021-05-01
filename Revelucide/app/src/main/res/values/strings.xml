@@ -42,4 +42,6 @@
     <string name="messageExperience">Your experience title here</string>
     <string name="modify">Modify</string>
     <string name="add">ADD</string>
+    <string name="login">Log in</string>
+    <string name="logout">Log out</string>
 </resources>

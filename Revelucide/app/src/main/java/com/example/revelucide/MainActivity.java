@@ -8,6 +8,9 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
 
@@ -16,6 +19,8 @@ import com.example.revelucide.models.ReveAdapter;
 import com.example.revelucide.models.bottomNavBar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -29,17 +34,22 @@ public class MainActivity extends AppCompatActivity { // JournalActivity
     private ListView listView;
     private SharedPreferences sp;
     private ReveAdapter reveAdapter;
+    private FirebaseAuth mAuth;
+    private Menu menu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // initialisation de firebase authentification
+        mAuth = FirebaseAuth.getInstance();
+
         listView = findViewById(R.id.listView);
         EditText filter = findViewById(R.id.searchBar);
 
         this.loadData();
-        ReveAdapter reveAdapter = new ReveAdapter(this, R.layout.listview_row, Reve.getReveLog());
+        reveAdapter = new ReveAdapter(this, R.layout.listview_row, Reve.getReveLog());
 
         listView.setAdapter(reveAdapter);
 
@@ -69,6 +79,38 @@ public class MainActivity extends AppCompatActivity { // JournalActivity
             Intent intent0 = new Intent(MainActivity.this, AjoutActivity.class);
             startActivity(intent0);
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the main_menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        this.menu = menu;
+        if (currentUser != null) {
+            menu.getItem(0).setVisible(false);
+        } else {
+            menu.getItem(1).setVisible(false);
+        }
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()) {
+            case R.id.login:
+                item.setVisible(false);
+                menu.getItem(1).setVisible(true);
+                break;
+            case R.id.logout:
+                item.setVisible(false);
+                menu.getItem(0).setVisible(true);
+                break;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+        return true;
     }
 
     private void loadData() {

@@ -43,4 +43,6 @@
     <string name="messageExperience">Les expériences de votre reves ici</string>
     <string name="modify">Modifier</string>
     <string name="add">Ajouter</string>
+    <string name="login">Connexion</string>
+    <string name="logout">Déconnexion</string>
 </resources>
