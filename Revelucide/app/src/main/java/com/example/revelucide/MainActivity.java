@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -35,7 +36,6 @@ public class MainActivity extends AppCompatActivity { // JournalActivity
     private SharedPreferences sp;
     private ReveAdapter reveAdapter;
     private FirebaseAuth mAuth;
-    private Menu menu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,30 +86,46 @@ public class MainActivity extends AppCompatActivity { // JournalActivity
         // Inflate the main_menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main_menu, menu);
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        this.menu = menu;
+        MenuItem itemLogin = menu.findItem(R.id.login);
+        MenuItem itemLogout = menu.findItem(R.id.logout);
         if (currentUser != null) {
-            menu.getItem(0).setVisible(false);
+            itemLogin.setVisible(false);
+            itemLogout.setVisible(true);
         } else {
-            menu.getItem(1).setVisible(false);
+            itemLogin.setVisible(true);
+            itemLogout.setVisible(false);
         }
         return true;
+    }
+
+    @Override
+    public boolean onMenuOpened(int featureId, Menu menu) {
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        MenuItem itemLogin = menu.findItem(R.id.login);
+        MenuItem itemLogout = menu.findItem(R.id.logout);
+        if (currentUser != null) {
+            itemLogin.setVisible(false);
+            itemLogout.setVisible(true);
+        } else {
+            itemLogin.setVisible(true);
+            itemLogout.setVisible(false);
+        }
+        return super.onMenuOpened(featureId, menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()) {
             case R.id.login:
-                item.setVisible(false);
-                menu.getItem(1).setVisible(true);
+                Intent intent0 = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent0);
                 break;
             case R.id.logout:
-                item.setVisible(false);
-                menu.getItem(0).setVisible(true);
+                FirebaseAuth.getInstance().signOut();
                 break;
             default:
                 return super.onOptionsItemSelected(item);
         }
-
         return true;
     }
 

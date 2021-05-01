@@ -45,4 +45,7 @@
     <string name="add">Ajouter</string>
     <string name="login">Connexion</string>
     <string name="logout">Déconnexion</string>
+    <string name="prompt_email">Votre adresse email ici</string>
+    <string name="prompt_password">Votre mot de passe ici</string>
+    <string name="loginButon">inscription/connexion</string>
 </resources>
