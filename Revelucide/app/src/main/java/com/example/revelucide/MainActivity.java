@@ -8,6 +8,10 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
 
@@ -16,6 +20,10 @@ import com.example.revelucide.models.ReveAdapter;
 import com.example.revelucide.models.bottomNavBar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -29,17 +37,21 @@ public class MainActivity extends AppCompatActivity { // JournalActivity
     private ListView listView;
     private SharedPreferences sp;
     private ReveAdapter reveAdapter;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // initialisation de firebase authentification
+        mAuth = FirebaseAuth.getInstance();
+
         listView = findViewById(R.id.listView);
         EditText filter = findViewById(R.id.searchBar);
 
         this.loadData();
-        ReveAdapter reveAdapter = new ReveAdapter(this, R.layout.listview_row, Reve.getReveLog());
+        reveAdapter = new ReveAdapter(this, R.layout.listview_row, Reve.getReveLog());
 
         listView.setAdapter(reveAdapter);
 
@@ -71,7 +83,65 @@ public class MainActivity extends AppCompatActivity { // JournalActivity
         });
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the main_menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        MenuItem itemLogin = menu.findItem(R.id.login);
+        MenuItem itemLogout = menu.findItem(R.id.logout);
+        if (currentUser != null) {
+            itemLogin.setVisible(false);
+            itemLogout.setVisible(true);
+        } else {
+            itemLogin.setVisible(true);
+            itemLogout.setVisible(false);
+        }
+        return true;
+    }
+
+    @Override
+    public boolean onMenuOpened(int featureId, Menu menu) {
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        MenuItem itemLogin = menu.findItem(R.id.login);
+        MenuItem itemLogout = menu.findItem(R.id.logout);
+        if (currentUser != null) {
+            itemLogin.setVisible(false);
+            itemLogout.setVisible(true);
+        } else {
+            itemLogin.setVisible(true);
+            itemLogout.setVisible(false);
+        }
+        return super.onMenuOpened(featureId, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()) {
+            case R.id.login:
+                Intent intent0 = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent0);
+                break;
+            case R.id.logout:
+                FirebaseAuth.getInstance().signOut();
+                break;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+        return true;
+    }
+
     private void loadData() {
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (currentUser != null) { // si un utilisateur est connecté faire un envoie a la base
+            // je dois spécifier l'url car sinon elle n'est pas bonne
+            FirebaseDatabase database = FirebaseDatabase.getInstance("https://reve-lucide-default-rtdb.europe-west1.firebasedatabase.app/");
+            DatabaseReference myRef = database.getReference(currentUser.getUid());
+
+            //String json = myRef.getDatabase().getReference("reveList");
+        } else {
+
+        }
         sp = getSharedPreferences("ReveLucidePref", Context.MODE_PRIVATE);
         Gson gson = new Gson();
         String json = sp.getString("reveLog", null);
@@ -90,6 +160,16 @@ public class MainActivity extends AppCompatActivity { // JournalActivity
         String json = gson.toJson(Reve.getReveLog());
         editor.putString("reveLog", json);
         editor.apply();
+
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (currentUser != null) { // si un utilisateur est connecté faire un envoie a la base
+            // je dois spécifier l'url car sinon elle n'est pas bonne
+            FirebaseDatabase database = FirebaseDatabase.getInstance("https://reve-lucide-default-rtdb.europe-west1.firebasedatabase.app/");
+            DatabaseReference myRef = database.getReference();
+            // je crée un noeu unique pour chaque utilisateur
+            myRef.child(currentUser.getUid()).child("reveList").setValue(json);
+            myRef.push();
+        }
     }
 
     private void createReveExample() {

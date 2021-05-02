@@ -15,6 +15,10 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.revelucide.models.Reve;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.gson.Gson;
 
 import java.util.Calendar;
@@ -67,6 +71,16 @@ public class AjoutActivity extends AppCompatActivity {
         String json = gson.toJson(Reve.getReveLog());
         editor.putString("reveLog", json);
         editor.apply();
+
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (currentUser != null) { // si un utilisateur est connecté faire un envoie a la base
+            // je dois spécifier l'url car sinon elle n'est pas bonne
+            FirebaseDatabase database = FirebaseDatabase.getInstance("https://reve-lucide-default-rtdb.europe-west1.firebasedatabase.app/");
+            DatabaseReference myRef = database.getReference();
+            // je crée un noeu unique pour chaque utilisateur
+            myRef.child(currentUser.getUid()).child("reveList").setValue(json);
+            myRef.push();
+        }
     }
 
     private boolean verifyForm(String title, String description) {

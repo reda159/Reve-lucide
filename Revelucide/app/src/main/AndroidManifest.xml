@@ -33,6 +33,9 @@
         <activity
             android:name=".ExperienceActivity"
             android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".LoginActivity"
+            android:windowSoftInputMode="adjustPan" />
     </application>
 
 </manifest>
